@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "Service";
+    Layout = "~/Views/Shared/_LayoutPageWeb.cshtml";
+}
+<head>
+    <link href="~/Content/mystyle/style1.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+    <style>
+        body {
+        }
+        .ck-dv {
+            justify-items: center;
+        }
+        .dv:hover {
+            animation: zooming-img 1s ease infinite;
+        }
+        .grid-dv {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px;
+            margin: auto;
+
+        }
+        .dv {
+            text-align: center;
+            border: 2px solid darkblue;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        .fm-img2 {
+            width: 150px;
+            height: 150px;
+        }
+        .fa-truck, .fa-life-ring, .fa-arrow-rotate-left, .fa-shield-halved {
+            color: darkblue;
+        }
+        @@media (max-width: 992px) {
+            .grid-dv {
+                 grid-template-columns: repeat(2, 1fr) !important;
+                 gap: 20px;
+                 padding: 0 20px;
+            }
+            .dv {
+                 padding: 25px 15px;
+            }
+            .fm-img2 {
+                 width: 120px;
+                  height: 120px;
+            }
+        }
+        @@media (max-width: 768px) {
+             .ck-dv h1 {
+                 font-size: 1.8rem;
+             }
+             .ck-dv p {
+                font-size: 1rem;
+             }
+        }
+        @@media (max-width: 600px) {
+             .grid-dv {
+                 grid-template-columns: 1fr !important; 
+                 gap: 25px;
+                 padding: 0 15px;
+             }
+             .dv {
+                 padding: 30px 20px;
+                 margin: 0;
+             }
+            .dv i {
+                 font-size: 2.8rem !important;
+            }
+            .fm-img2 {
+                width: 100px;
+                height: 100px;
+            }
+            .ck-dv {
+                 padding: 20px;
+            }
+            .ck-dv h1 {
+                font-size: 1.6rem;
+            }
+            .ck-dv p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ck-dv">
+        <h1><b>Cam Kết Dịch Vụ</b></h1>
+        <p>Chúng tôi mang đến những trải nghiệm mua sắm an toàn, tiện lợi và tốt nhất cho bạn.</p>
+    </div>
+    <div class="grid-dv">
+        <div class="dv">
+            <i class="fa-solid fa-truck"></i>
+            <p><b>Giao hàng siêu tốc</b></p>
+            <p>Nhận hàng chỉ sau 2 giờ trong nội thành và 2-3 ngày</p>
+            <p>trên toàn quốc. Đóng gói cẩn thận.</p>
+        </div>
+        <div class="dv">
+            <i class="fa-solid fa-life-ring"></i>
+            <p><b>Hỗ trợ Khách hàng 24/7</b></p>
+            <p>Đội ngũ hỗ trợ chuyên nghiệp sẵn sàng giải đáp</p>
+            <p>mọi thắc mắc của bạn qua điện thoại, email hoặc</p>
+            <p>chat trực tuyến bất cứ lúc nào.</p>
+        </div>
+        <div class="dv">
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+            <p><b>Đổi trả Dễ dàng</b></p>
+            <p>Cam kết 100% hoàn tiền hoặc đổi sản phẩm mới</p>
+            <p>trong vòng 30 ngày nếu có lỗi từ nhà sản xuất</p>
+            <p>hoặc sản phẩm không như mô tả.</p>
+
+        </div>
+        <div class="dv">
+            <i class="fa-solid fa-shield-halved"></i>
+            <p><b>Thanh toán Bảo mật</b></p>
+            <p>Mọi giao dịch được mã hóa SSL 256-bit cao cấp,</p>
+            <p>đảm bảo an toàn tuyệt đối cho thông tin cá nhân và thẻ của bạn.</p>
+
+        </div>
+    </div>
+</body>
+

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<HL.store.Models.Product1>
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutPageWeb.cshtml";
+}
+<style>
+    .list-product {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .list-product a {
+        text-decoration: none !important;   
+       
+    }
+    .box-pro {
+        width: 250px;
+        height: auto;
+        background: white;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        transition: transform 0.3s;
+        margin-left: 160px;
+    }
+    .box-pro:hover {
+        transform: translateY(-5px);
+    }
+    .fm-img {
+        width: 100%;
+        height: 180px;
+        object-fit: contain;
+        border-radius: 12px;
+    }
+    .product-actions {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: auto;
+    }
+    .btn {
+        flex: 1;
+        padding: 0.65rem 0;
+        text-align: center;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    .section-title{
+        text-align:center;
+    }
+</style>
+<h1 class="section-title"><b>Featured</b></h1>
+<div class="list-product">
+    @if (Model != null && Model.Any())
+     {
+        foreach (var pro in Model)
+        {
+            string img = string.IsNullOrEmpty(pro.ImagePro)
+                ? Url.Content("~//default.png")
+                : Url.Content(pro.ImagePro);
+
+            <div class="box-pro">
+                <a href="@Url.Action("Chitietsanpham", "TrangChu", new { id = pro.ProductID })">
+                    <img src="@img" class="fm-img" /><br />
+                    <p>@pro.NamePro</p>
+                </a>
+                <p>
+                    <span style="color:orangered">
+                        <b>@pro.Price.Value.ToString("N0") VND</b>
+                    </span>
+                </p>
+                <div class="product-actions">
+                    <a href="/Cart/Add/@pro.ProductID" class="btn btn-primary">Add to bag</a>
+                </div>
+            </div>
+        }
+     }
+     else
+     {
+        <p>Không tìm thấy sản phẩm phù hợp.</p>
+     }
+</div>

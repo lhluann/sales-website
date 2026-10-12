@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutPageLienHe.cshtml";
+}
+
+<div class="text-center mb-8">
+    <h2 class="text-4xl font-extrabold text-gray-900 mb-2">@ViewData["Title"]</h2>
+    <p class="text-xl text-gray-500">Chúng tôi sẵn lòng lắng nghe ý kiến của bạn.</p>
+</div>
+
+@if (TempData["MessageStatus"] != null)
+{
+    <div class="status-success mb-6 max-w-2xl mx-auto" style="color:green;">
+        @TempData["MessageStatus"]
+    </div>
+}
+
+@if (TempData["MessageStatusError"] != null)
+{
+    <div class="status-error mb-6 max-w-2xl mx-auto" style="color:red;">
+        @TempData["MessageStatusError"]
+    </div>
+}
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="lg:col-span-1 bg-white p-8 rounded-xl shadow-lg h-full border-t-4 border-blue-500">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+            <i class="fa-solid fa-location-dot mr-2 text-blue-500"></i> Văn Phòng Của Chúng Tôi
+        </h3>
+        <p><strong>Địa Chỉ:</strong> 131 Điện Biên Phủ, Quận 1, Tp.Hồ Chí Minh</p>
+        <p><strong>Điện Thoại:</strong> 0123456789</p>
+        <p><strong>Email:</strong> ggggg@gmail.com</p>
+    </div>
+
+    <div class="lg:col-span-2 bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-500">
+        <form asp-controller="TrangChu" asp-action="Contact" method="post" class="space-y-4">
+            <div>
+                <input type="text" name="Name" placeholder="Họ & Tên..." required />
+            </div>
+            <div>
+                <input type="email" name="Email" placeholder="Email..." required />
+            </div>
+            <div>
+                <input type="text" name="Subject" placeholder="Chủ đề..." required  />
+            </div>
+            <div>
+                <textarea name="Message" rows="5" placeholder="Nội dung tin nhắn..." required ></textarea>
+            </div>
+            <a href="@Url.Action("ThanhCongContact", "TrangChu")" class="submit-btn inline-flex items-center justify-center w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+                <i class="fa-solid fa-paper-plane mr-2"></i> Send
+            </a>
+        </form>
+    </div>
+</div>

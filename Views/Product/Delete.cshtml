@@ -1,0 +1,89 @@
+﻿@model HL.store.Models.Product1
+@{
+    ViewBag.Title = "Xóa sản phẩm";
+    Layout = null;
+    var tenDanhMuc = ViewBag.TenDanhMuc as string ?? "Chưa chọn";
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        body {
+            background: #f4f6f9;
+            padding: 50px;
+        }
+
+        .box {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        h2 {
+            color: #e74c3c;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 20px 0;
+        }
+
+        .btn {
+            padding: 15px 40px;
+           
+            border-radius: 12px;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>XÁC NHẬN XÓA SẢN PHẨM</h2>
+        <p style="color:red; ">Hành động này <u>không thể hoàn tác</u>!</p>
+
+        @if (TempData["Error"] != null)
+        {
+            <div style="background:#e74c3c; color:white; padding:15px; border-radius:12px; margin:20px;">
+                @TempData["Error"]
+            </div>
+        }
+
+        <div style="background:#f8f9fa; padding:25px; border-radius:15px;">
+            <img src="@(string.IsNullOrEmpty(Model.ImagePro) ? "~/Hinh/no-image.jpg" : Url.Content(Model.ImagePro))" /><br /><br />
+            <h3>@Model.NamePro</h3>
+            <p><strong>Giá:</strong> @String.Format("{0:N0}", Model.Price) ₫</p>
+            <p><strong>Danh mục:</strong> @tenDanhMuc</p>
+        </div>
+
+        @using (Html.BeginForm("Delete", "Product", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.ProductID)
+            <button type="submit" class="btn btn-danger">XÓA VĨNH VIỄN</button>
+            <a href="@Url.Action("Index", "Product")" class="btn btn-secondary">HỦY BỎ</a>
+        }
+    </div>
+</body>
+</html>

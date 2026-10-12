@@ -1,0 +1,55 @@
+﻿@model HL.store.Models.Product1
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_LayoutPageWeb.cshtml";
+}
+
+<div class="product-detail-container" style="padding: 20px; max-width: 1200px; margin: auto;">
+    <div class="product-detail" style="display: flex; gap: 40px; flex-wrap: wrap;">
+        <div class="product-image" style="flex: 1; min-width: 300px;">
+            <img src="@Url.Content(Model.ImagePro ?? "~/images/default.png")"
+                 alt="@Model.NamePro"
+                 style="width: 100%; max-width: 400px; border: 1px solid #ddd; padding: 10px;" />
+        </div>
+        <div class="product-info" style="flex: 2; min-width: 300px;">
+            <h1 style="font-size: 2rem; margin-bottom: 15px;">@Model.NamePro</h1>
+
+            @if (Model.Price.HasValue)
+            {
+                <p style="font-size: 1.5rem; color: orangered;">
+                    <b>@String.Format("{0:N0} VND", Model.Price)</b>
+                </p>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.DecriptionPro))
+            {
+                <h3>Mô tả chi tiết:</h3>
+                <p style="white-space: pre-line;">@Model.DecriptionPro</p>
+            }
+            <p style="margin-top: 20px;">
+                <a href="/Cart/Add/@Model.ProductID" class="btn btn-primary" style="padding: 10px 20px; font-size: 1rem;border-radius:20px;">Add to bag</a>
+            </p>
+        </div>
+    </div>
+
+
+</div>
+<style>
+    .product-detail-container h1,
+    .product-detail-container h2,
+    .product-detail-container h3 {
+        color: #333;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+</style>

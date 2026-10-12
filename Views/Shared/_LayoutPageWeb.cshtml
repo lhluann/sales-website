@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/mystyle/style1.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+       
+        * {
+            box-sizing: border-box;
+        }
+        .nav {
+            width: 100%;
+            height: 70px;
+            background-color: white;
+        }
+        #content {
+            width: 100%;
+            height: 400px;
+        }
+        #footer {
+            width: 100%;
+            height: 300px;
+            background-color: #222;
+        }
+        #icon-img {
+            width: 50px;
+            height: 50px;
+            bottom: 80px; /*Khoảng cách tính từ mép dưới cùng của thành phần bao ngoài*/
+            right: 50px;
+            position: fixed;
+        }
+        #menu {
+            justify-content: center;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        #fm-menu li {
+            list-style-type: none;
+            display: inline-block;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px 20px;
+        }
+        #fm-menu a {
+            text-decoration: none;
+        }
+        #icon-img {
+            border-radius: 10px 10px;
+            width: 40px;
+            height: 40px;
+        }
+        .copyright {
+            background-color: #222;
+            text-align: center; /* căn giữa văn nội dung vb */
+            padding-top: 10px;
+            border-top: 1px solid #444; /* đường viền trên*/
+            color: #999;
+        }
+        .cart-icon {
+            color: #ffa500;
+            font-size: 20px;
+            margin-left: 15px;       
+            margin-top:10px;
+        }
+        .cart-icon:hover {
+            color: #e69500;
+        }
+        .user-icon {
+            color: #007bff;
+            font-size: 1.3rem;
+            margin-left: 15px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        .user-icon:hover {
+            color: #0056b3;
+        }
+        @@media (max-width: 1200px) {
+            .dancing-script-uniquifier {
+                margin-left: 50px;
+            }
+            .nav-bar-right {
+                margin-right: 50px;
+            }
+        }
+        @@media (max-width: 992px) {
+    
+            .banner-content h2 {
+                font-size: 2.4rem;
+            }
+            .banner-content p {
+                font-size: 1.1rem;
+            }
+        }
+        @@media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            .dancing-script-uniquifier {
+                margin-left: 0;
+                font-size: 2rem;
+            }
+            .nav-bar-right {
+                margin-right: 0;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-bar-menu {
+                flex-direction: column;
+                gap: 8px;
+            }
+            #fm-menu li {
+                display: block;
+                width: 80%;
+                margin: 0 auto;
+            }
+            .banner {
+                height: 400px;
+            }
+            .banner-content h2 {
+                font-size: 2rem;
+            }
+            .banner-content p {
+                font-size: 1rem;
+            }
+            .banner-content .btn {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+            .list-product {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 0 15px;
+            }
+            .box-pro {
+                text-align: center;
+            }
+            .fm-img {
+                width: 100%;
+                height: auto;
+                max-width: 200px;
+            }
+        }
+        @@media (max-width: 576px) {
+            .slogan {
+                height: auto;
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+            .banner {
+                height: 350px;
+            }
+            .banner-content h2 {
+                font-size: 1.7rem;
+            }
+            .banner-content p {
+                font-size: 0.95rem;
+            }
+            .list-product {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            #footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+
+            } 
+            .footer-container {
+                flex-direction: column;
+            }
+            .footer-col {
+                margin-bottom: 30px;
+            }
+            .footer-link {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slogan">
+        <p>
+            Free Standard Delivery & 30-Day Free Returns-<b>Join Now</b> or <b>View Details</b>
+        </p>
+    </div>
+    <div class="nav">
+        <div id="fm-brand">
+            <h2 class="dancing-script-uniquifier">HL Store</h2>
+        </div>
+        <div class="nav-bar-menu">
+            <div  id="menu">
+                <ol id="fm-menu">
+                    <li><a href="/trangchu/Home"><b>Home</b></a></li>
+                    <li><a href="/trangchu/Contact"><b>Contact</b></a></li>
+                    <li><a href="/trangchu/Product"><b>Product</b></a></li>
+                    <li><a href="/trangchu/Service"><b>Service</b></a></li>
+
+                </ol>
+            </div>
+        </div>
+        <div class="nav-bar-right">
+            <div>
+                <form action="/trangchu/Product" method="get" id="globalSearchForm">
+                    <div style="position:relative;">
+                        <i class="fas fa-search" style="position:absolute; left:20px; top:50%; transform:translateY(-50%); color:#007bff; font-size:20px; "></i>
+                        <input type="text" name="keyword" value="@(Request["keyword"] ?? "")" placeholder="Search..." style=" height:40px; padding:0 40px 0 50px; border:3px solid #007bff; border-radius:50px;   " />
+                    </div>
+                </form>
+            </div>
+            <a href="/Cart/IndexCart" class="cart-icon">
+                <i class="fas fa-bag-shopping"></i>
+            </a>
+            @if (Session["NameUser"] != null)
+            {
+                <span style="margin-left: 10px; font-weight:bold; color:#007bff;">
+                    Xin chào, @Session["NameUser"]
+                </span>
+                <a href="@Url.Action("Logout", "LoginRegister")" class="user-icon" title="Đăng xuất">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("IndexLoginRegister", "LoginRegister")" class="user-icon" title="Tài khoản">
+                    <i class="fas fa-circle-user"></i>
+                </a>
+            }
+
+
+
+
+        </div>
+</div>
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Welcome To HL Store  </h2>
+            <p> Shop for genuine tech products - Best prices!</p>
+            <a href="#grid" class="btn btn-primary">Shop Now</a>
+        </div>
+    </section> 
+    <div class="grid-container" id="grid">
+        <div class="left-side">
+
+        </div>
+        <div class="right-side">
+            @RenderBody()
+            <a href="#top">
+                <img src="~/Hinh/Screenshot 2025-10-03 090335.png" id="icon-img" />
+            </a>
+        </div>
+    </div>
+    <div id="footer" style="clear:both;padding:45px;">
+        <div  style="width:25%">
+            <h3 class="footer-col">Thông Tin Liên Hệ</h3>
+            <p class="footer-col">
+                <i class="fa-solid fa-location-dot"></i> 131 Điện Biên Phủ, Quận 1, Tp.Hồ Chí Minh
+            </p>
+            <p class="footer-col">
+                <i class="fa-solid fa-phone-volume"></i> Hotline:0123456789
+            </p>
+            <p class="footer-col">
+                <i class="fa-solid fa-envelope"></i> Email:ggggg@gmail.com
+            </p>
+         
+        </div>
+        <div   style="width:25%">
+            <h3 class="footer-col">Hỗ Trợ Khách Hàng</h3>
+            <p class="footer-col"> Hướng dẫn đăng nhập</p>
+            <p class="footer-col"> Hướng dẫn mua hàng</p>
+            <p class="footer-col"> Hướng dẫn đổi trả hàng</p>
+            <p class="footer-col"> Hướng dẫn thanh toán</p>
+            <p class="footer-col"> Liên hệ </p>
+        </div>
+        <div   style="width:25%">
+            <h3 class="footer-col">Chính Sách</h3>
+            <p class="footer-col">Chính sách thanh toán</p>
+            <p class="footer-col">Chính sách bảo hành</p>
+            <p class="footer-col">Chính sách vận chuyển</p>
+            <p class="footer-col">Chính sách bảo mật</p>
+            <p class="footer-col">Chính sách đổi trả hàng</p>
+        </div>
+        <div  style="width:25%">
+            <h3 class="footer-col">Kết Nối Với Chúng Tôi</h3>
+            <div class="footer-link">
+                <a href="https://www.facebook.com/" target="_blank" title="Đây là link đến facebook">
+                    <img src="~/Hinh/fb.png" alt="Facebook " class="icon" />
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" title="Đây là link đến instagram">
+                    <img src="~/Hinh/ig.png" alt="instagram " class="icon" />
+                </a>
+                <a href="https://www.tiktok.com/" target="_blank" title="Đây là link đến tiktok">
+                    <img src="~/Hinh/tt.png" alt="Tiktok" class="icon" />
+                </a>
+                <a href="https://www.google.com.vn/" target="_blank" title="Đây là link đến google">
+                    <img src="~/Hinh/gg.png" alt="Google" class="icon" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2025 HL Store. All rights reserved. 
+    </div>
+    <script>
+    // tìm sản phẩm
+    const searchInput = document.querySelector('input[name="keyword"]');
+    let timer;
+    searchInput.addEventListener('input', function () {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            document.getElementById('globalSearchForm').submit();
+        }, 500);
+    });
+</script>
+
+</body>
+</html>

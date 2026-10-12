@@ -1,0 +1,96 @@
+﻿@model List<HL.store.Models.CartItem>
+
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/mystyle/StyleThanhToan.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="checkoutLayout">
+
+            @*Giỏ hàng bên trái*@
+            <div class="returncart">
+                <a href="@Url.Action("Home", "trangchu")">Tiếp tục mua hàng</a>
+                <h1>Danh Sách Sản Phẩm Trong Giỏ Hàng</h1>
+
+                @if (!Model.Any())
+                {
+                    <p>Giỏ hàng trống.</p>
+                }
+                else
+                {
+                    <div class="list">
+                        @foreach (var item in Model)
+                        {
+                            <div class="item">
+                                <img src="@(string.IsNullOrEmpty(item.ImagePro) ? "/Hinh/default.jpg" : Url.Content(item.ImagePro))"
+                                     alt="@item.namePro" />
+                                <div class="info">
+                                    <div class="name">@item.namePro</div>
+
+                                </div>
+                                <div class="quantity">@item.quantity</div>
+                                <div class="returnPrice">@item.total.ToString("N0") VNĐ</div>
+                                <div>
+                                    <a href="@Url.Action("Remove", "Cart", new { id = item.idPro })" class="btn btn-danger">Xóa</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+
+                <div class="row">
+                    <div>Tổng số lượng:</div>
+                    <div class="totalQuantity">@Model.Sum(s => s.quantity)</div>
+                </div>
+                <div class="row">
+                    <div>Tổng tiền:</div>
+                    <div class="totalPrice">@Model.Sum(s => s.total).ToString("N0") VNĐ</div>
+                </div>
+            </div>
+
+            @*Thanh toán bên phải*@ 
+            <div class="right">
+                <h1>Thanh Toán</h1>
+                <form action="@Url.Action("ThanhToan", "Cart")" method="post" class="form">
+
+                    <div class="group">
+                        <label>Chọn Khách hàng:</label>
+                        <input type="hidden" name="IDCus" value="@Session["UserID"]" />
+
+                        <p>Khách hàng: <strong>@Session["NameUser"]</strong></p>
+                    </div>
+                    <div class="group">
+                        <label>Địa chỉ</label>
+                        <input type="text" name="DCNhanHang" required/>
+                    </div>
+
+                    <button type="submit"
+                            class="buttonCheckout @(Model.Any() ? "" : "disabled-btn")"
+                            @(Model.Any() ? "" : "disabled='disabled'")>
+                        Thanh Toán
+                    </button>
+
+                    <style>
+                        .disabled-btn {
+                            opacity: 0.5;
+                            pointer-events: none;
+                        }
+                    </style>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

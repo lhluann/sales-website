@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ứng Dụng Web</title>
+    <link href="~/Content/mystyle/StyleLH.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" xintegrity="sha512-42173Rk6O8U5vL5nNn10r62v9W5c2P8i1O0z/o5K8k5N0jQ7G5Tq5E5V2Nn6g9h2g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">HL Store</h1>
+            <nav class="space-x-4">
+                <a href="~/trangchu/Home" class="text-gray-600 hover:text-blue-600 transition">Home</a>
+              
+                <a href="~/trangchu/Contact" class="text-blue-600 font-semibold">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <div class="flex-grow container mx-auto p-4 md:p-8 lg:p-12">
+        @*Chèn nội dung của Contact vào đây*@
+        @RenderBody()
+    </div>
+    <footer class="bg-gray-800 text-white mt-12 p-6">
+        <div class="max-w-7xl mx-auto text-center text-sm">
+            &copy; @DateTime.Now.Year  Đây là dự án web bán hàng của sinh vien.
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+</body>
+</html>

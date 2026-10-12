@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Đã gửi yêu cầu Thành Công";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .success-box {
+            background: #fff;
+            margin: auto;
+            padding: 40px 60px;
+            width: 450px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .success-box h2 {
+             color: lightblue; 
+             margin-bottom: 20px;
+             font-size: 28px;
+             font-weight: bold;
+        }
+        .btn-back {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .btn-back:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-box">
+        <h2>Đã gửi yêu cầu Thành Công!</h2>
+        <p>Shop sẽ liên hệ lại sớm nhất có thể.</p>
+
+        <a class="btn-back" href="@Url.Action("Home", "trangchu")">
+            Quay về trang chủ
+        </a>
+    </div>
+</body>
+</html>

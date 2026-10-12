@@ -1,0 +1,107 @@
+﻿@model HL.store.Models.Product1
+@{
+    ViewBag.Title = "Cập nhật sản phẩm";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background: #f4f6f9;
+            padding: 40px;
+        }
+
+        .card {
+            max-width: 800px;
+            margin: auto;
+            border-radius: 20px;
+            overflow: hidden; /* ẩn nội dung khi bị tràn*/
+        }
+
+        .card-header {
+            background: #667eea;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 24px;
+        }
+
+        #previewImage {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid #ddd;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">CẬP NHẬT SẢN PHẨM</div>
+        <div class="card-body p-5">
+
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success">@TempData["Success"]</div>
+            }
+
+            @using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.ProductID)
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Tên sản phẩm</label>
+                    @Html.EditorFor(m => m.NamePro, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.NamePro, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Mô tả</label>
+                    @Html.TextAreaFor(m => m.DecriptionPro, new { @class = "form-control", rows = 4 })
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Giá</label>
+                    @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+                    @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Danh mục</label>
+                    @Html.DropDownListFor(m => m.IDCate, (SelectList)ViewBag.listCate, "Chọn danh mục", new { @class = "form-select" })
+                </div>
+
+                <div class="mb-4 text-center">
+                    <label class="form-label fw-bold d-block">Hình ảnh</label>
+                    @if (!string.IsNullOrEmpty(Model.ImagePro))
+                    {
+                        <img src="@Url.Content(Model.ImagePro)" id="previewImage" /><br /><br />
+                    }
+                    else
+                    {
+                        <img src="~/Hinh/no-image.jpg" id="previewImage" /><br /><br />
+                    }
+                    <input type="file" name="ImagePath" id="ImagePath" accept="image/*" class="form-control" />
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success btn-lg px-5">CẬP NHẬT</button>
+                    <a href="@Url.Action("Index", "Product")" class="btn btn-secondary btn-lg px-5">QUAY LẠI</a>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('ImagePath').addEventListener('change', function(e) {
+        if (e.target.files[0]) {
+            document.getElementById('previewImage').src = URL.createObjectURL(e.target.files[0]);
+        }
+    });
+    </script>
+</body>
+</html>

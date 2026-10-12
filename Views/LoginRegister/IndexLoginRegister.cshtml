@@ -1,0 +1,80 @@
+﻿@model HL.store.Models.AdminUser
+
+@{
+    ViewBag.Title = "IndexLoginRegister";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/mystyle/StyleLogin.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div id="container" class="container @(ViewBag.ShowRegisterForm != null && (bool)ViewBag.ShowRegisterForm ? "active no-transition" : "")">
+
+        <div class="form-box login">
+            @using (Html.BeginForm("Login", "LoginRegister", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <h1>Đăng Nhập</h1>
+                <div class="input-box">
+                    @Html.TextBoxFor(m => m.NameUser, new { @class = "form-control", placeholder = "Tên Đăng Nhập" })
+                    <i class="fa-solid fa-user"></i>
+                    <span class="error">@ViewBag.ErrLoginID</span>
+                </div>
+                <div class="input-box">
+                    @Html.PasswordFor(m => m.PasswordUser, new { @class = "form-control", placeholder = "Mật Khẩu" })
+                    <i class="fa-solid fa-lock"></i>
+                    <span class="error">@ViewBag.ErrLoginPass</span>
+                </div>
+                <button type="submit" class="btn">Đăng Nhập</button>
+            }
+        </div>
+
+        <div class="form-box register">
+            @using (Html.BeginForm("Register", "LoginRegister", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <h1>Đăng Ký</h1>
+                <div class="input-box">
+                    @Html.TextBoxFor(m => m.NameUser, new { @class = "form-control", placeholder = "Tên Đăng Nhập" })
+                    <i class="fa-solid fa-user"></i>
+                    <span class="error">@ViewBag.ErrRegister</span>
+                </div>
+                <div class="input-box">
+                    @Html.PasswordFor(m => m.PasswordUser, new { @class = "form-control", placeholder = "Mật Khẩu" })
+                    <i class="fa-solid fa-lock"></i>
+                    <span class="error">@ViewBag.ErrPassword</span>
+                </div>
+                <div class="input-box">
+                    @Html.PasswordFor(m => m.ConfirmPass, new { @class = "form-control", placeholder = "Xác Nhận Mật Khẩu" })
+                    <span class="error">@ViewBag.ErrConfirm</span>
+                </div>
+                <button type="submit" class="btn">Đăng Ký</button>
+            }
+        </div>
+
+        <div class="toogle-box">
+            <div class="toogle-panel toogle-left">
+                <h1>Welcome!</h1>
+                <p>Không có tài khoản?</p>
+                <button class="btn register-btn">Đăng Ký</button>
+            </div>
+            <div class="toogle-panel toogle-right">
+                <h1>Chào mừng trở lại!</h1>
+                <p>Bạn đã có tài khoản?</p>
+                <button class="btn login-btn">Đăng Nhập</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/my-scripts/Script1.js"></script>
+</body>
+
+</html>
