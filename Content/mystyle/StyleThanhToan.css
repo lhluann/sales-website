@@ -1,0 +1,177 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+body {
+    background: #e2f7fa;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+.checkoutLayout {
+ display: grid;
+    grid-template-columns: 3fr 2fr; 
+    gap: 40px;
+}
+@media (max-width: 768px) {
+    .checkoutLayout {
+        grid-template-columns: 1fr;
+    }
+
+        .checkoutLayout .right {
+            margin-top: 20px;
+        }
+}
+
+/* Khung bên phải (Thanh toán) */
+.checkoutLayout .right {
+    background-color: #4dd1f4;
+    border-radius: 20px;
+    padding: 30px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Form input */
+.checkoutLayout .form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 20px;
+}
+
+    /* Các group Họ tên, SĐT, Địa chỉ kéo full width */
+    .checkoutLayout .form .group:nth-child(-n+3) {
+        grid-column: 1 / span 2;
+    }
+
+    .checkoutLayout .form .group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .checkoutLayout .form input,
+    .checkoutLayout .form select {
+        width: 100%;
+        padding: 10px 15px;
+        border-radius: 15px;
+        border: none;
+        background-color: rgba(255,255,255,0.3);
+        color: #fff;
+        font-size: 14px;
+    }
+
+        .checkoutLayout .form input:focus,
+        .checkoutLayout .form select:focus {
+            outline: 2px solid #00ffff;
+        }
+
+/* Row tổng tiền, tổng số lượng */
+.checkoutLayout .return .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+    .checkoutLayout .return .row div:nth-child(2) {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+/* Button Thanh Toán */
+.buttonCheckout {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: #00ffff;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .buttonCheckout:hover {
+        background-color: #00c4cc;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+/* Giỏ hàng bên trái */
+.returncart {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+    .returncart a {
+        text-decoration: none;
+        color: #0077b6;
+        font-weight: bold;
+        margin-bottom: 10px;
+        transition: 0.3s;
+    }
+
+        .returncart a:hover {
+            color: #023e8a;
+        }
+    .returncart h1 {
+        border-top: 2px solid #eee;
+        padding-top: 20px;
+        margin-bottom: 20px;
+    }
+    /* List sản phẩm */
+    .returncart .list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .returncart .item {
+        display: grid;
+        grid-template-columns: 80px 1fr 80px auto; /* cột giá auto rộng vừa nội dung */
+        align-items: center;
+        gap: 15px;
+        padding: 10px 15px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .returncart .item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .returncart .item img {
+         width: 80px;
+         height: 80px;
+         object-fit: cover;
+         border-radius: 10px;
+    }
+    .returncart .item .name,
+    .returncart .item .returnPrice {
+         text-align: right;
+         white-space: nowrap; /* giữ 1 dòng */
+         overflow: hidden;
+         text-overflow: ellipsis; /* hiển thị ... nếu quá dài */
+         max-width: 100%; /* không vượt quá cột */
+         font-weight: bold;
+    }
+    .returncart .item .quantity {
+        text-align: center;
+    }
+    .returncart .list .item,
+    .checkoutLayout .right,
+    .buttonCheckout {
+        transition: all 0.3s ease;
+    }
