@@ -8,26 +8,43 @@ Website thương mại điện tử bán laptop, tablet, điện thoại và ph�
 ## 📸 Giao diện chính
 
 ### 1. Trang chủ (Home)
+![Trang chủ](screenshots/home.png)
+
 - Banner chào mừng **Welcome To HL Store**
 - Sản phẩm nổi bật (Featured) với nút **Add to bag**
 - Thanh tìm kiếm + giỏ hàng
 
-### 2. Đăng nhập / Đăng ký
+### 2. Đăng ký
+![Đăng ký](screenshots/register.png)
+
 - Form đăng ký: Tên đăng nhập, Mật khẩu, Xác nhận mật khẩu
-- Form đăng nhập: Tên đăng nhập, Mật khẩu
 - Giao diện 2 cột hiện đại (xanh mint + trắng)
 
-### 3. Quản lý sản phẩm (Admin)
+### 3. Đăng nhập
+![Đăng nhập](screenshots/login.png)
+
+- Form đăng nhập: Tên đăng nhập, Mật khẩu
+- Giao diện đối xứng với trang Đăng ký
+
+### 4. Quản lý sản phẩm (Admin)
+![Quản lý sản phẩm](screenshots/admin-products.png)
+
 - Bảng danh sách sản phẩm (ID, Hình, Tên, Giá, Danh mục, Thao tác)
 - Nút **Add New**, **Edit**, **Delete**
-- Form **Thêm mới sản phẩm** & **Cập nhật sản phẩm** (tên, mô tả, giá, danh mục, hình ảnh)
 
-### 4. Trang Liên hệ (Contact)
+### 5. Thêm mới sản phẩm
+![Thêm mới sản phẩm](screenshots/add-product.png)
+
+### 6. Cập nhật sản phẩm
+![Cập nhật sản phẩm](screenshots/edit-product.png)
+
+### 7. Trang Liên hệ (Contact)
+![Liên hệ](screenshots/contact.png)
+
 - Thông tin văn phòng
 - Form gửi tin nhắn (Họ & Tên, Email, Chủ đề, Nội dung)
 
 ---
-
 ## 🌟 Tính năng chính
 
 ### 👤 Người dùng
